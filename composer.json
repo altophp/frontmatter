@@ -1,0 +1,65 @@
+{
+    "name": "alto/frontmatter",
+    "description": "Fast front matter extraction and strict YAML-subset decoding for PHP, the decoder companion for alto/markdown.",
+    "license": "MIT",
+    "type": "library",
+    "homepage": "https://github.com/altophp/frontmatter",
+    "keywords": [
+        "front-matter",
+        "frontmatter",
+        "yaml",
+        "toml",
+        "metadata",
+        "markdown",
+        "parser",
+        "static-site"
+    ],
+    "support": {
+        "issues": "https://github.com/altophp/frontmatter/issues",
+        "source": "https://github.com/altophp/frontmatter"
+    },
+    "authors": [
+        {
+            "name": "Simon André",
+            "email": "smn.andre@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=8.4"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.94",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^12.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Alto\\FrontMatter\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Alto\\FrontMatter\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "coverage": [
+            "vendor/bin/phpunit --coverage-clover=.phpunit.cache/clover.xml --coverage-text",
+            "@coverage:check"
+        ],
+        "coverage:check": "php tests/coverage-check.php .phpunit.cache/clover.xml 100",
+        "cs": "vendor/bin/php-cs-fixer fix --dry-run --diff",
+        "cs-fix": "vendor/bin/php-cs-fixer fix",
+        "qa": [
+            "@sa",
+            "@cs",
+            "@tests"
+        ],
+        "sa": "vendor/bin/phpstan analyse --memory-limit=-1",
+        "tests": "vendor/bin/phpunit"
+    }
+}
