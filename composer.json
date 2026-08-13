@@ -3,7 +3,7 @@
     "description": "Fast front matter extraction and strict YAML-subset decoding for PHP, the decoder companion for alto/markdown.",
     "license": "MIT",
     "type": "library",
-    "homepage": "https://github.com/altophp/frontmatter",
+    "homepage": "https://altophp.com/frontmatter",
     "keywords": [
         "front-matter",
         "frontmatter",
@@ -15,9 +15,16 @@
         "static-site"
     ],
     "support": {
+        "docs": "https://altophp.com/frontmatter",
         "issues": "https://github.com/altophp/frontmatter/issues",
         "source": "https://github.com/altophp/frontmatter"
     },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/smnandre"
+        }
+    ],
     "authors": [
         {
             "name": "Simon André",
