@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [Unreleased]
+
+- Rework documentation.
+
 ## [0.9.0] - 2026-08-07
 
 First public release. The API is complete but not frozen: it may still change
