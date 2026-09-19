@@ -17,4 +17,4 @@ After installation, load Composer's autoloader as usual:
 require dirname(__DIR__).'/vendor/autoload.php';
 ```
 
-Continue with [Getting Started](getting-started.md) to read a complete document.
+Continue with [Getting started](getting-started.md) to read a complete document.
