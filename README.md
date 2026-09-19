@@ -67,13 +67,13 @@ should read the file for you.
 | Guide | Contents |
 | --- | --- |
 | [Documentation index](docs/index.md) | Browse the complete guide set |
+| [Installation](docs/installation.md) | Install the package and check requirements |
 | [Getting started](docs/getting-started.md) | Read metadata and locate the body |
 | [Typed metadata](docs/metadata.md) | Accessors, defaults, enums, and dates |
 | [Decoding](docs/decoding.md) | The supported YAML subset and raw blocks |
 | [Rendering](docs/rendering.md) | Generate YAML, JSON, and TOML front matter |
 | [Integration](docs/integration.md) | Decoder and renderer contracts |
 | [Errors](docs/errors.md) | Exception hierarchy and recovery |
-| [Design](docs/design.md) | Guarantees, tradeoffs, and limitations |
 
 ## Contributing
 

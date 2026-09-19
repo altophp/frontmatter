@@ -1,26 +1,32 @@
-# Front Matter
+# Alto Front Matter
 
-ALTO Front Matter extracts document metadata, decodes a strict YAML subset,
-and exposes the result through typed accessors without retaining the document
-body.
+ALTO Front Matter extracts fenced metadata from documents and exposes it
+through typed, read-only accessors. Its dependency-free decoder implements a
+strict YAML subset and rejects unsupported syntax with precise source
+coordinates instead of silently reinterpreting input.
 
-It is designed for Markdown processors, static-site generators, content tools,
-and other applications that need predictable metadata without a general-purpose
-YAML runtime. Unsupported constructs fail explicitly with source coordinates.
+```php
+use Alto\FrontMatter\FrontMatter;
 
-## Start
+$metadata = FrontMatter::fromString("---\ntitle: Hello\n---\nArticle body\n");
+echo $metadata->getString('title');
+```
 
-- [Installation](installation.md) covers requirements and package installation.
-- [Getting Started](getting-started.md) reads a complete document and locates its body.
+The example prints `Hello`.
 
-## Work with data
+## Documentation
 
-- [Typed Metadata](metadata.md) documents accessors, defaults, enums, and dates.
-- [Decoding](decoding.md) defines the accepted YAML subset and scalar typing.
-- [Rendering](rendering.md) creates YAML, JSON, or TOML front matter.
-- [Integration](integration.md) covers the decoder and renderer contracts.
+- [Installation](installation.md): install the package and verify its requirements.
+- [Getting started](getting-started.md): read metadata and recover the document body.
+- [Metadata](metadata.md): access typed values, defaults, enums, and dates.
+- [Decoding](decoding.md): understand the supported YAML subset and its limits.
+- [Rendering](rendering.md): generate YAML, JSON, or TOML front matter.
+- [Integration](integration.md): use or replace the decoder and renderer contracts.
+- [Errors](errors.md): handle syntax, type, format, and file failures.
 
-## Reference
+## Boundaries
 
-- [Errors](errors.md) explains the exception hierarchy and recovery boundaries.
-- [Design](design.md) records performance goals, guarantees, and limitations.
+The default decoder accepts YAML front matter only. TOML can be rendered but
+requires a custom decoder for input. The returned metadata records where the
+front matter appeared; the caller retains ownership of the original document
+and its body.

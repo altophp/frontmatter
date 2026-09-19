@@ -25,5 +25,5 @@ Type-hint these interfaces in services that need to substitute, decorate, or
 test decoding and rendering independently. The facade keeps one lazily-created
 default instance of each implementation and exposes no mutable configuration.
 
-Use [Getting Started](getting-started.md) when an application only needs the
+Use [Getting started](getting-started.md) when an application only needs the
 default behavior.

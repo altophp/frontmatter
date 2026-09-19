@@ -1,4 +1,4 @@
-# Typed Metadata
+# Typed metadata
 
 `Metadata` is a read-only accessor over the decoded top-level mapping. Values
 are typed during decoding, and getters validate rather than broadly coerce them.

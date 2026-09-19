@@ -52,3 +52,34 @@ core schema without Symfony's additional conventions.
 
 Quote zero-padded identifiers and any other value that must remain a string.
 See [Errors](errors.md) for syntax diagnostics.
+
+## Correct invalid metadata
+
+Use the reported line and column to find the first rejected construct. Replace
+unsupported YAML features with explicit values rather than retrying in a
+lenient mode: there is none. Quote identifiers when scalar typing differs from
+the required type. For TOML input, provide a custom decoder or convert the
+metadata to the documented YAML subset before calling the default decoder.
+
+## Guarantees
+
+- A single-pass byte cursor parses without building a token stream or AST.
+- Unsupported YAML is rejected rather than silently reinterpreted.
+- Scalar typing is deterministic and independent of locale or configuration.
+- The first grammar violation reports a line and column.
+- Source offsets refer to the original input bytes.
+- The package has no runtime Composer dependencies.
+
+Rejecting aliases also prevents alias-expansion attacks by construction. The
+decoder never resolves anchors, aliases, or merge keys.
+
+## Limits
+
+- TOML front matter is detected but not decoded.
+- The decoder intentionally implements a subset of YAML.
+- Metadata access is limited to top-level keys and explicit nested arrays.
+- The body remains owned by the caller and is not stored in `Metadata`.
+- Parsing stops at the first error and has no lenient mode.
+
+Use [Integration](integration.md) when an application needs replaceable decoder
+or renderer contracts.
