@@ -3,7 +3,6 @@
     "description": "Fast front matter extraction and strict YAML-subset decoding for PHP, the decoder companion for alto/markdown.",
     "license": "MIT",
     "type": "library",
-    "homepage": "https://altophp.com/frontmatter",
     "keywords": [
         "front-matter",
         "frontmatter",
@@ -14,10 +13,17 @@
         "parser",
         "static-site"
     ],
+    "authors": [
+        {
+            "name": "Simon André",
+            "email": "smn.andre@gmail.com"
+        }
+    ],
+    "homepage": "https://altophp.com/frontmatter",
     "support": {
-        "docs": "https://altophp.com/frontmatter",
         "issues": "https://github.com/altophp/frontmatter/issues",
-        "source": "https://github.com/altophp/frontmatter"
+        "source": "https://github.com/altophp/frontmatter",
+        "docs": "https://altophp.com/frontmatter"
     },
     "funding": [
         {
@@ -25,13 +31,6 @@
             "url": "https://github.com/sponsors/smnandre"
         }
     ],
-    "authors": [
-        {
-            "name": "Simon André",
-            "email": "smn.andre@gmail.com"
-        }
-    ],
-    "minimum-stability": "stable",
     "require": {
         "php": ">=8.4"
     },
@@ -40,6 +39,7 @@
         "phpstan/phpstan": "^2.1",
         "phpunit/phpunit": "^12.5"
     },
+    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
             "Alto\\FrontMatter\\": "src/"
@@ -59,14 +59,14 @@
             "@coverage:check"
         ],
         "coverage:check": "php tests/coverage-check.php .phpunit.cache/clover.xml 100",
-        "cs": "vendor/bin/php-cs-fixer fix --dry-run --diff",
-        "cs-fix": "vendor/bin/php-cs-fixer fix",
+        "cs": "vendor/bin/php-cs-fixer fix --dry-run --diff --sequential",
+        "cs:fix": "vendor/bin/php-cs-fixer fix --sequential",
         "qa": [
-            "@sa",
             "@cs",
-            "@tests"
+            "@sa",
+            "@test"
         ],
         "sa": "vendor/bin/phpstan analyse --memory-limit=-1",
-        "tests": "vendor/bin/phpunit"
+        "test": "vendor/bin/phpunit"
     }
 }
